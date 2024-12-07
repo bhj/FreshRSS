@@ -11,7 +11,7 @@ Server-side API compatible with Google Reader API layer 2
 	under GNU AGPL 3 license http://www.gnu.org/licenses/agpl-3.0.html
 
 == Documentation ==
-* http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI
+* https://code.google.com/archive/p/pyrfeed/wikis/GoogleReaderAPI.wiki
 * https://web.archive.org/web/20130718025427/http://undoc.in/
 * http://ranchero.com/downloads/GoogleReaderAPI-2009.pdf
 * https://github.com/mihaip/google-reader-api
@@ -647,7 +647,7 @@ final class GReaderAPI {
 
 	private static function streamContents(string $path, string $include_target, int $start_time, int $stop_time, int $count,
 		string $order, string $filter_target, string $exclude_target, string $continuation): never {
-		// http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI
+		// https://code.google.com/archive/p/pyrfeed/wikis/GoogleReaderAPI.wiki
 		// https://web.archive.org/web/20210126115837/https://blog.martindoms.com/2009/10/16/using-the-google-reader-api-part-2#feed
 		header('Content-Type: application/json; charset=UTF-8');
 
@@ -697,7 +697,7 @@ final class GReaderAPI {
 	private static function streamContentsItemsIds(string $streamId, int $start_time, int $stop_time, int $count,
 		string $order, string $filter_target, string $exclude_target, string $continuation): never {
 		// https://github.com/mihaip/google-reader-api/blob/master/wiki/ApiStreamItemsIds.wiki
-		// http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI
+		// https://code.google.com/archive/p/pyrfeed/wikis/GoogleReaderAPI.wiki
 		// https://web.archive.org/web/20210126115837/https://blog.martindoms.com/2009/10/16/using-the-google-reader-api-part-2#feed
 		$type = 'A';
 		if ($streamId === 'user/-/state/com.google/reading-list') {
