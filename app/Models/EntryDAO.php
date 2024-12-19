@@ -491,7 +491,7 @@ SQL;
 			Minz_Log::debug('Calling markReadEntries(0) is deprecated!');
 		}
 
-		$sql = 'UPDATE `_entry` SET is_read = ? WHERE is_read <> ? AND id <= ?';
+		$sql = 'UPDATE `_entry` SET is_read = ? WHERE is_read <> ? AND id < ?';
 		$values = [$is_read ? 1 : 0, $is_read ? 1 : 0, $idMax];
 		if ($onlyFavorites) {
 			$sql .= ' AND is_favorite=1';
@@ -545,7 +545,7 @@ SQL;
 		$sql = <<<'SQL'
 UPDATE `_entry`
 SET is_read = ?
-WHERE is_read <> ? AND id <= ?
+WHERE is_read <> ? AND id < ?
 AND id_feed IN (SELECT f.id FROM `_feed` f WHERE f.category=?)
 SQL;
 		$values = [$is_read ? 1 : 0, $is_read ? 1 : 0, $idMax, $id];
@@ -589,7 +589,7 @@ SQL;
 
 		$sql = 'UPDATE `_entry` '
 			 . 'SET is_read=? '
-			 . 'WHERE id_feed=? AND is_read <> ? AND id <= ?';
+			 . 'WHERE id_feed=? AND is_read <> ? AND id < ?';
 		$values = [$is_read ? 1 : 0, $id_feed, $is_read ? 1 : 0, $idMax];
 
 		[$searchValues, $search] = $this->sqlListEntriesWhere('', $filters, $state);
@@ -642,7 +642,7 @@ SQL;
 			 . 'SET e.is_read = ? '
 			 . 'WHERE '
 			 . ($id == 0 ? '' : 'et.id_tag = ? AND ')
-			 . 'e.is_read <> ? AND e.id <= ?';
+			 . 'e.is_read <> ? AND e.id < ?';
 		$values = [$is_read ? 1 : 0];
 		if ($id != 0) {
 			$values[] = $id;
